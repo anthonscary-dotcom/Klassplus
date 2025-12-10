@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KLASS+ | Premium Entertainment & Events</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #FFEC8B 100%);
+            --gold-solid: #D4AF37;
+            --gold-light: #FFD700;
+            --gold-dark: #B8860B;
+            --white: #FFFFFF;
+            --black: #000000;
+            --charcoal: #1A1A1A;
+            --header-bg: rgba(30, 30, 30, 0.95);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        header {
+            background: var(--header-bg);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            width: 250px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50% / 40%;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            background: var(--gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--gold-light);
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--gold);
+            color: var(--black);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            padding-top: 0;
+            margin-top: 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+            padding-top: 80px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: var(--gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .video-section {
+            background: var(--charcoal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .video-container:before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: var(--gold);
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        .video-player {
+            width: 100%;
+            height: 500px;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .video-player video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .video-control {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            color: white;
+        }
+
+        .video-control:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        .video-info {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .video-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: var(--gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .services {
+            background: var(--charcoal);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            background: var(--gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-header p {
+            color: #aaa;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gold);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: var(--black);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .service-card p {
+            color: #ccc;
+        }
+
+        .gallery {
+            background: var(--black);
+        }
+
+        .gallery-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .gallery-tab {
+            padding: 12px 25px;
+            background: transparent;
+            color: var(--white);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .gallery-tab.active {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 250px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: var(--white);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-video-controls {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            display: flex;
+            gap: 8px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-video-controls {
+            opacity: 1;
+        }
+
+        .gallery-video-btn {
+            width: 30px;
+            height: 30px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            color: white;
+            font-size: 12px;
+        }
+
+        .gallery-video-btn:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        .team-section {
+            background: var(--charcoal);
+            position: relative;
+        }
+
+        .team-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .team-toggle:hover {
+            transform: translateY(-3px);
+        }
+
+        .team-toggle h2 {
+            margin-bottom: 0;
+            background: var(--gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hamburger-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition);
+        }
+
+        .hamburger-line {
+            width: 30px;
+            height: 3px;
+            background: var(--gold);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .team-toggle.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .team-toggle.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .team-toggle.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .team-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .team-content.active {
+            max-height: 2000px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .team-member {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px 20px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid var(--gold);
+        }
+
+        .team-member h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--white);
+        }
+
+        .team-member p {
+            color: var(--gold-light);
+            font-style: italic;
+        }
+
+        .payment-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), 
+                        url('https://images.unsplash.com/photo-1492684223066-e48bfdd9c5cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+            position: relative;
+        }
+
+        .payment-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            padding: 40px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .payment-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: var(--gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .payment-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .payment-option {
+            width: 80px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .payment-option.active {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        .payment-option img {
+            width: 60px;
+            height: 30px;
+            object-fit: contain;
+        }
+
+        .payment-form {
+            display: grid;
+            gap: 20px;
+            text-align: left;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: #ccc;
+        }
+
+        .form-control {
+            padding: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .pesapal-fields {
+            display: none;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .pesapal-fields.active {
+            display: grid;
+        }
+
+        footer {
+            background: var(--charcoal);
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: var(--gold-light);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .footer-col p {
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-light);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--gold);
+            color: var(--black);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #777;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--charcoal);
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            padding: 40px;
+            position: relative;
+            transform: translateY(50px);
+            transition: transform 0.4s ease;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gold);
+            color: var(--black);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+        }
+
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .logo-img {
+                width: 200px;
+                height: 100px;
+            }
+            
+            .pesapal-fields {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(30, 30, 30, 0.95);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                border-top: 1px solid rgba(212, 175, 55, 0.3);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 250px;
+            }
+
+            .video-player {
+                height: 300px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-img {
+                width: 150px;
+                height: 75px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-img {
+                width: 120px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="0logo+.png" alt="KLASS+ Logo" class="logo-img">
+            
+            </div>
+            <nav>
+                <ul id="mainNav">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#upcoming">Events</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="nav-cta" id="bookNowBtn">Book Now</button>
+            <div class="mobile-menu" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>ELITE ENTERTAINMENT EXPERIENCES</h1>
+            <p>KLASS+ curates premium events, develops exceptional talent, and creates unforgettable moments that merge artistry with business excellence.</p>
+            <div class="hero-buttons">
+                <a href="#upcoming" class="btn btn-primary">View Upcoming Events</a>
+                <a href="#services" class="btn btn-secondary">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section video-section" id="upcoming">
+        <div class="container">
+            <div class="video-container">
+                <div class="video-player">
+                    <video id="promoVideo" autoplay muted loop>
+                        <source src="Frank Stories-Akawungeezi AKO 2_1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-controls">
+                        <div class="video-control" id="muteBtn">
+                            <i class="fas fa-volume-mute"></i>
+                        </div>
+                        <div class="video-control" id="pauseBtn">
+                            <i class="fas fa-pause"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="video-info">
+                <h2>THE GOLD EXPERIENCE</h2>
+                <p>An exclusive night of music, art, and luxury. Join us for an unforgettable evening.</p>
+                <a href="#payment" class="btn btn-primary">Reserve Your Spot</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>OUR SERVICES</h2>
+                <p>KLASS+ delivers excellence across event production, talent development, and strategic partnerships.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-microphone-alt"></i>
+                    </div>
+                    <h3>Event Production</h3>
+                    <p>End-to-end event management from concept to execution, with meticulous attention to detail and premium production values.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Talent Development</h3>
+                    <p>Nurturing emerging artists with comprehensive development programs, PR support, and career management.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Brand Partnerships</h3>
+                    <p>Creating meaningful collaborations between brands and entertainment properties for maximum impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section gallery" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>GALLERY</h2>
+                <p>Explore our portfolio of premium events and talent showcases.</p>
+            </div>
+            <div class="gallery-tabs">
+                <button class="gallery-tab active" data-filter="all">All Events</button>
+                <button class="gallery-tab" data-filter="pictures">Pictures</button>
+                <button class="gallery-tab" data-filter="videos">Videos</button>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="pictures">
+                    <img src="WhatsApp Image 2025-12-09 at 6.17.04 PM.jpeg" alt="Executive Gala Night">
+                    <div class="gallery-overlay">
+                        <h3>Executive Gala Night</h3>
+                        <p>2023 Annual Corporate Event</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="pictures">
+                    <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Rhythm & Gold Festival">
+                    <div class="gallery-overlay">
+                        <h3>Rhythm & Gold Festival</h3>
+                        <p>2023 Summer Music Experience</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="pictures">
+                    <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Excellence Awards">
+                    <div class="gallery-overlay">
+                        <h3>Excellence Awards</h3>
+                        <p>2023 Talent Recognition Gala</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="videos">
+                    <video muted loop>
+                        <source src="SHINE ON BLACK QUEEN  MONTAGE 2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="gallery-video-controls">
+                        <div class="gallery-video-btn" onclick="toggleGalleryVideo(this)">
+                            <i class="fas fa-pause"></i>
+                        </div>
+                        <div class="gallery-video-btn" onclick="toggleGalleryVideoMute(this)">
+                            <i class="fas fa-volume-mute"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h3>Live Performance</h3>
+                        <p>2023 Music Festival Highlights</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="videos">
+                    <video muted loop>
+                        <source src="gallery1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="gallery-video-controls">
+                        <div class="gallery-video-btn" onclick="toggleGalleryVideo(this)">
+                            <i class="fas fa-pause"></i>
+                        </div>
+                        <div class="gallery-video-btn" onclick="toggleGalleryVideoMute(this)">
+                            <i class="fas fa-volume-mute"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h3>Concert Experience</h3>
+                        <p>2023 Rock Festival Crowd</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section team-section" id="team">
+        <div class="container">
+            <div class="team-toggle" id="teamToggle">
+                <h2>MEET OUR TEAM</h2>
+                <div class="hamburger-icon">
+                    <div class="hamburger-line"></div>
+                    <div class="hamburger-line"></div>
+                    <div class="hamburger-line"></div>
+                </div>
+            </div>
+            
+            <div class="team-content" id="teamContent">
+                <div class="section-header">
+                    <h2>THE KLASS+ TEAM</h2>
+                    <p>Our dedicated professionals bring decades of combined experience in entertainment and event management.</p>
+                </div>
+                
+                <div class="team-grid">
+                   
+                    <div class="team-member" data-member="emily">
+                        <img src="" alt="Emily Kirabo">
+                        <h3>Emily Kirabo</h3>
+                        <p>Head of Project Management</p>
+                    </div>
+                    <div class="team-member" data-member="frank">
+                        <img src="" alt="Frank Kasozi">
+                        <h3>Frank Kasozi</h3>
+                        <p>Head of Production</p>
+                    </div>
+                    <div class="team-member" data-member="grace">
+                        <img src="" alt="Grace Ndagiire">
+                        <h3>Grace Ndagiire</h3>
+                        <p>Head of Administration</p>
+                    </div>
+                    <div class="team-member" data-member="jackie">
+                        <img src="" alt="Jackie Roy">
+                        <h3>Jackie Roy</h3>
+                        <p>Public Relations & Talent Liaison</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section payment-section" id="payment">
+        <div class="container">
+            <div class="section-header">
+                <h2>RESERVE YOUR EXPERIENCE</h2>
+                <p>Secure your spot at our upcoming premium events with our seamless payment system.</p>
+            </div>
+            <div class="payment-container">
+                <h2>Event Registration</h2>
+                <p>Complete your booking for "The Gold Experience"</p>
+                
+                <div class="payment-options">
+                    <div class="payment-option active" data-payment="pesapal">
+                        <img src="https://pesapal.com/wp-content/uploads/2022/02/Pesapal-Logo-Full-Colour-RGB.svg" alt="Pesapal">
+                    </div>
+                    <div class="payment-option" data-payment="mtn">
+                        <img src="https://www.mtn.com/wp-content/themes/mtn-theme/assets/svg/mtn-logo.svg" alt="MTN Mobile Money">
+                    </div>
+                    <div class="payment-option" data-payment="airtel">
+                        <img src="https://www.airtel.ug/wp-content/themes/airtel-uganda/images/airtel-money-logo.svg" alt="Airtel Money">
+                    </div>
+                </div>
+                
+                <form class="payment-form" id="paymentForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tickets">Number of Tickets</label>
+                        <select id="tickets" class="form-control" required>
+                            <option value="" disabled selected>Select number of tickets</option>
+                            <option value="1">1 Ticket - $150</option>
+                            <option value="2">2 Tickets - $280</option>
+                            <option value="4">4 Tickets - $520</option>
+                            <option value="6">VIP Table (6) - $900</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="paymentMethod">Payment Method</label>
+                        <select id="paymentMethod" class="form-control" required>
+                            <option value="" disabled selected>Select payment method</option>
+                            <option value="pesapal">Pesapal</option>
+                            <option value="mtn">MTN Mobile Money</option>
+                            <option value="airtel">Airtel Money</option>
+                        </select>
+                    </div>
+                    
+                    <div class="pesapal-fields" id="pesapalFields">
+                        <div class="form-group">
+                            <label for="pesapalEmail">PesaPal Email</label>
+                            <input type="email" id="pesapalEmail" class="form-control" placeholder="Your PesaPal email">
+                        </div>
+                        <div class="form-group">
+                            <label for="pesapalPhone">PesaPal Phone</label>
+                            <input type="tel" id="pesapalPhone" class="form-control" placeholder="Your PesaPal phone">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Complete Reservation</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>KLASS+</h3>
+                    <p>Creating transformative entertainment experiences in East Africa through premium event production, talent development, and strategic brand partnerships.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#upcoming">Upcoming Events</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Event Production</a></li>
+                        <li><a href="#">Talent Management</a></li>
+                        <li><a href="#">Brand Partnerships</a></li>
+                        <li><a href="#">Creative Consultancy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</p>
+                    <p><i class="fas fa-envelope"></i> admin@klassplus.com</p>
+                    <p><i class="fas fa-phone"></i> +256 700 000 000</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span id="year"></span> KLASS+ | Premium Entertainment, Events & Talent Management | Kampala, Uganda</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </div>
+            <div style="text-align: center; padding: 20px;">
+                <div style="width: 80px; height: 80px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                    <i class="fas fa-check" style="font-size: 40px; color: var(--black);"></i>
+                </div>
+                <h2 style="margin-bottom: 15px; background: var(--gold); -webkit-background-clip: text; background-clip: text; color: transparent;">Payment Successful!</h2>
+                <p>Thank you for your reservation. You will receive a confirmation email shortly with your event details.</p>
+                <button class="btn btn-primary" style="margin-top: 20px;" id="closeModalBtn">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        const teamToggle = document.getElementById('teamToggle');
+        const teamContent = document.getElementById('teamContent');
+        
+        teamToggle.addEventListener('click', () => {
+            teamToggle.classList.toggle('active');
+            teamContent.classList.toggle('active');
+        });
+        
+        const galleryTabs = document.querySelectorAll('.gallery-tab');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        galleryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                galleryTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                const filter = tab.getAttribute('data-filter');
+                
+                galleryItems.forEach(item => {
+                    if (filter === 'all') {
+                        item.style.display = 'block';
+                    } else if (filter === 'pictures' && item.getAttribute('data-category') === 'pictures') {
+                        item.style.display = 'block';
+                    } else if (filter === 'videos' && item.getAttribute('data-category') === 'videos') {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        const paymentOptions = document.querySelectorAll('.payment-option');
+        const pesapalFields = document.getElementById('pesapalFields');
+        const paymentMethodSelect = document.getElementById('paymentMethod');
+        
+        paymentOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                paymentOptions.forEach(o => o.classList.remove('active'));
+                option.classList.add('active');
+                
+                const paymentType = option.getAttribute('data-payment');
+                paymentMethodSelect.value = paymentType;
+                
+                if (paymentType === 'pesapal') {
+                    pesapalFields.classList.add('active');
+                } else {
+                    pesapalFields.classList.remove('active');
+                }
+            });
+        });
+        
+        paymentMethodSelect.addEventListener('change', () => {
+            const selectedMethod = paymentMethodSelect.value;
+            
+            paymentOptions.forEach(o => {
+                o.classList.remove('active');
+                if (o.getAttribute('data-payment') === selectedMethod) {
+                    o.classList.add('active');
+                }
+            });
+            
+            if (selectedMethod === 'pesapal') {
+                pesapalFields.classList.add('active');
+            } else {
+                pesapalFields.classList.remove('active');
+            }
+        });
+        
+        const paymentForm = document.getElementById('paymentForm');
+        const successModal = document.getElementById('successModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modalClose = document.getElementById('modalClose');
+        
+        paymentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                tickets: document.getElementById('tickets').value,
+                paymentMethod: document.getElementById('paymentMethod').value
+            };
+            
+            // ===================================================
+            // PAYMENT API INTEGRATION SECTION
+            // ===================================================
+            
+            if (formData.paymentMethod === 'pesapal') {
+                formData.pesapalEmail = document.getElementById('pesapalEmail').value;
+                formData.pesapalPhone = document.getElementById('pesapalPhone').value;
+                
+                // PESA PAL API INTEGRATION
+                // Replace with your actual PesaPal credentials and implementation
+                
+                // Example PesaPal API structure:
+                /*
+                const pesapalData = {
+                    id: generateOrderId(),
+                    currency: "USD",
+                    amount: calculateAmount(formData.tickets),
+                    description: "KLASS+ Event Registration - The Gold Experience",
+                    callback_url: "YOUR_CALLBACK_URL_HERE",
+                    cancellation_url: "YOUR_CANCELLATION_URL_HERE",
+                    notification_id: "YOUR_NOTIFICATION_ID_HERE",
+                    billing_address: {
+                        email_address: formData.pesapalEmail || formData.email,
+                        phone_number: formData.pesapalPhone || formData.phone,
+                        country_code: "UG",
+                        first_name: formData.name.split(' ')[0],
+                        last_name: formData.name.split(' ')[1] || "",
+                        line_1: "",
+                        city: "Kampala",
+                        state: ""
+                    }
+                };
+                
+                // Make API call to PesaPal
+                fetch('https://api.pesapal.com/v3/api/Transactions/SubmitOrderRequest', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer YOUR_PESAPAL_ACCESS_TOKEN_HERE',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(pesapalData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.redirect_url) {
+                        // Redirect to PesaPal payment page
+                        window.location.href = data.redirect_url;
+                    } else {
+                        throw new Error('No redirect URL received');
+                    }
+                })
+                .catch(error => {
+                    console.error('PesaPal API Error:', error);
+                    alert('Payment processing failed. Please try again.');
+                });
+                */
+                
+            } else if (formData.paymentMethod === 'mtn') {
+                // MTN MOBILE MONEY API INTEGRATION
+                // Replace with your actual MTN Mobile Money integration
+                
+                /*
+                const mtnData = {
+                    amount: calculateAmount(formData.tickets),
+                    currency: "UGX",
+                    externalId: generateTransactionId(),
+                    payer: {
+                        partyIdType: "MSISDN",
+                        partyId: formData.phone.replace(/[^0-9]/g, '')
+                    },
+                    payerMessage: "KLASS+ Event Registration",
+                    payeeNote: "Thank you for booking with KLASS+"
+                };
+                
+                // MTN Mobile Money API call
+                fetch('YOUR_MTN_API_ENDPOINT_HERE', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer YOUR_MTN_API_KEY_HERE',
+                        'X-Reference-Id': generateUUID()
+                    },
+                    body: JSON.stringify(mtnData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Handle MTN API response
+                    if (data.status === 'SUCCESS') {
+                        successModal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                })
+                .catch(error => {
+                    console.error('MTN API Error:', error);
+                    alert('MTN Mobile Money payment failed. Please try again.');
+                });
+                */
+                
+            } else if (formData.paymentMethod === 'airtel') {
+                // AIRTEL MONEY API INTEGRATION
+                // Replace with your actual Airtel Money integration
+                
+                /*
+                const airtelData = {
+                    reference: generateTransactionId(),
+                    subscriber: {
+                        country: "UG",
+                        currency: "UGX",
+                        msisdn: formData.phone.replace(/[^0-9]/g, '')
+                    },
+                    transaction: {
+                        amount: calculateAmount(formData.tickets),
+                        country: "UG",
+                        currency: "UGX",
+                        id: generateUUID()
+                    }
+                };
+                
+                // Airtel Money API call
+                fetch('YOUR_AIRTEL_API_ENDPOINT_HERE', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer YOUR_AIRTEL_API_KEY_HERE',
+                        'X-Country': 'UG',
+                        'X-Currency': 'UGX'
+                    },
+                    body: JSON.stringify(airtelData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Handle Airtel API response
+                    if (data.status === 'SUCCESS') {
+                        successModal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                })
+                .catch(error => {
+                    console.error('Airtel API Error:', error);
+                    alert('Airtel Money payment failed. Please try again.');
+                });
+                */
+            }
+            
+            // For demo purposes only - remove in production
+            successModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // ===================================================
+            // END PAYMENT API INTEGRATION SECTION
+            // ===================================================
+            
+            paymentForm.reset();
+            pesapalFields.classList.remove('active');
+        });
+        
+        closeModalBtn.addEventListener('click', () => {
+            successModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        modalClose.addEventListener('click', () => {
+            successModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        const promoVideo = document.getElementById('promoVideo');
+        const muteBtn = document.getElementById('muteBtn');
+        const pauseBtn = document.getElementById('pauseBtn');
+        
+        muteBtn.addEventListener('click', () => {
+            if (promoVideo.muted) {
+                promoVideo.muted = false;
+                muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+            } else {
+                promoVideo.muted = true;
+                muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            }
+        });
+        
+        pauseBtn.addEventListener('click', () => {
+            if (promoVideo.paused) {
+                promoVideo.play();
+                pauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                promoVideo.pause();
+                pauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        });
+        
+        function toggleGalleryVideo(button) {
+            const video = button.closest('.gallery-item').querySelector('video');
+            const icon = button.querySelector('i');
+            
+            if (video.paused) {
+                video.play();
+                icon.className = 'fas fa-pause';
+            } else {
+                video.pause();
+                icon.className = 'fas fa-play';
+            }
+        }
+        
+        function toggleGalleryVideoMute(button) {
+            const video = button.closest('.gallery-item').querySelector('video');
+            const icon = button.querySelector('i');
+            
+            if (video.muted) {
+                video.muted = false;
+                icon.className = 'fas fa-volume-up';
+            } else {
+                video.muted = true;
+                icon.className = 'fas fa-volume-mute';
+            }
+        }
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    if (mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+        
+        document.getElementById('bookNowBtn').addEventListener('click', () => {
+            document.querySelector('#payment').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
